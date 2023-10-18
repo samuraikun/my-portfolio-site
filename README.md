@@ -45,6 +45,9 @@ The goal of this assignment is to create a personal portfolio website that will 
 
 - You can choose to have a separate page for each section or you can have a single page with multiple sections.
 
+## Wireframe
+![wireframe](./public/wireframe.png)
+
 ## Workflow
 
 - Create a new branch with a descriptive name of your first implementation.
