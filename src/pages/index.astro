@@ -1,16 +1,25 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="flex justify-center">Astro flex</div>
-  </body>
-</html>
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">Hey there 👋</div>
+    <div class="text-5xl font-bold">I'm Yuichi Kojima</div>
+    <div class="text-3xl py-3 font-bold">Software Engineer</div>
+    <div class="text-xl py-3 font-bold">Location: British Columbia, Canada 🇨🇦</div>
+    <div class="py-2">
+      <text class="text-lg">
+        I 🩷 Ruby, Ruby on Rails, AWS, Terraform, DevOps technology.
+      </text>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+  </div>
+</BaseLayout>
