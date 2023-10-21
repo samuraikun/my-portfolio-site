@@ -1,0 +1,122 @@
+---
+import { match, P } from "ts-pattern";
+import Card from "@components/Card.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const GITHUB_GRAPHQL_ENDPOINT = 'https://api.github.com/graphql'
+const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN
+
+type Repository = {
+  name: string,
+  description: string,
+  url: string,
+  primaryLanguage: {
+    name: string
+  },
+  repositoryTopics: {
+    edges: Array<{
+      node: {
+        topic: {
+          name: string
+        }
+      }
+    }>
+  }
+}
+
+type GraphQLResponse = {
+  data?: {
+    viewer: {
+      pinnedItems: {
+        edges: Array<{
+          node: Repository
+        }>
+      }
+    }
+  },
+  errors?: Array<{ message: string }>
+}
+
+async function fetchMyPinnedRepos(): Promise<Repository[] | null> {
+  const query = `
+query {
+  viewer{
+    pinnedItems(first: 6, types: REPOSITORY) {
+      edges {
+        node {
+          ... on Repository {
+            name
+            description
+            url
+            primaryLanguage {
+              name
+            }
+            repositoryTopics(first: 3) {
+              edges {
+                node {
+                  topic {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+  `
+
+  const response = await fetch(GITHUB_GRAPHQL_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `bearer ${GITHUB_TOKEN}`
+    },
+    body: JSON.stringify({ query })
+  })
+  const jsonResponse: GraphQLResponse = await response.json()
+
+  // error handling by ts-pattern
+  return match(jsonResponse)
+    .with({ errors: P.array({ message: P._ }) }, ({ errors }) => {
+      console.error(errors);
+      return null;
+    })
+    .with({ data: { viewer: { pinnedItems: { edges: P.array() } } } }, ({ data }) => {
+      return data.viewer.pinnedItems.edges.map((edge: { node: Repository }) => edge.node)
+    })
+    .otherwise(() => {
+      console.error('Unexpected response from GitHub GraphQL API');
+      return null;
+    })
+}
+
+const pinnedRepos = await fetchMyPinnedRepos()
+---
+
+<BaseLayout title = "Projects" sideBarActiveItemID="projects">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">Projects</div>
+  </div>
+
+  <div class="mb-10 text-start">
+    As a full-stack engineer, my portfolio reflects a balance of curiosity and deliberate technical exploration.
+    <br>I've developed projects with Vue and React, adhering to the Atomic Design principles.
+    <br>However, my deeper inclination, lies in backend development and setting up application infrastructures, especially with AWS and Terraform.
+    The Rails applications deployed on AWS ECS and my experiments with GraphQL in Ruby on Rails are testament to this.
+    These repositories, born out of personal interest, provide a snapshot of my capabilities and methodical approach to software engineering.
+  </div>
+
+  <div class="flex flex-wrap flex-row justify-between gap-8">
+    {pinnedRepos && pinnedRepos.map((repo: Repository) => (
+      <Card
+        title={repo.name}
+        desc={repo.description}
+        badge={repo.primaryLanguage.name}
+        url={repo.url}
+      />
+    ))}
+  </div>
+</BaseLayout>
