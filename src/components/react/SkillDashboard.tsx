@@ -50,7 +50,7 @@ export const SkillDashboard: React.FC = () => {
 
       <div className="mt-6 flex flex-col gap-8">
         <Card>
-          <div className="w-[50rem] h-[36rem]">
+          <div className="w-full h-[20rem] md:w-[40rem] md:h-[30rem] lg:w-[50rem] lg:h-[36rem]">
             <h2 className="font-bold text-2xl">Scoring Skills</h2>
             <div className="divider"></div>
             <SkillRadarChart data={radarChartdata} />
