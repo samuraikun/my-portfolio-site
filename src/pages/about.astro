@@ -1,0 +1,121 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import TimeLineElement from "@components/TimeLine.astro";
+---
+
+<BaseLayout title="About" sideBarActiveItemID="about">
+  <div>
+    <div class="mb-5">
+      <div class="text-3xl w-full font-bold">Profile</div>
+    </div>
+
+    <div class="mb-10 text-start text-xl">
+      <p>
+        I'm a software engineer based in Vancouver, Canada. I'm currently
+        working as freelance.
+      </p>
+      <p>
+        Before comming to Canada, I worked as a software engineer at 7 years in
+        Tokyo, Japan.
+      </p>
+      <p>
+        I'm interested in distributed systems, databases, backend engineering,
+        and frontend engineering.
+      </p>
+    </div>
+
+    <div class="mb-5">
+      <div class="text-3xl w-full font-bold">Bio</div>
+    </div>
+
+    <div class="time-line-container grid gap-4 mb-10">
+      <TimeLineElement title="Born in Kyoto, Japan" subtitle="Jul. 1993" />
+      <TimeLineElement
+        title="Ryukoku University"
+        subtitle="Mar. 2012 to Mar. 2016 at Bachelor of Business Administration , Kyoto, Japan"
+      />
+      <TimeLineElement
+        title="Sansan, Inc."
+        subtitle="Apr. 2016 to Aug. 2018 at Software Engineer, Tokyo, Japan"
+      />
+      <TimeLineElement
+        title="Career Break"
+        subtitle="Sep. 2018 to Dec. 2018, Traveled & Authored technical books on computer technologies, Everywhere in Japan."
+      />
+      <TimeLineElement
+        title="Crevo, Inc."
+        subtitle="Jan. 2019 to Jan. 2023 at Software Engineer, Tokyo, Japan"
+      />
+      <TimeLineElement
+        title="Freelance"
+        subtitle="Feb. 2023 to Jun. 2023 at Software Engineer, Full-Remote, Everywhere in Japan 🗾"
+      />
+      <TimeLineElement
+        title="Cornerstone International Community College of Canada"
+        subtitle="Jul. 2023 to Aug. 2025 at Diploma of Computer Sciences, Vancouver, Canada"
+      />
+      <TimeLineElement
+        title="Freelance"
+        subtitle="Jul. 2023 to Present at Software Engineer, Full-Remote 🌏"
+      />
+    </div>
+
+    <div class="mb-5">
+      <div class="text-3xl w-full font-bold">
+        <p class="flex flex-row">
+          I <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mt-2 mb-2 mr-1 ml-1"
+            fill="inherit"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            ></path>
+          </svg> travel & photo 🏝️ 📷
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-8">
+      <div class="card lg:card-side bg-base-100 shadow-xl transition ease-in-out hover:scale-[104%]">
+        <figure>
+          <Image
+            class="rounded-lg max-w-full md:max-w-[13rem]"
+            src="/asakusa_night.webp"
+            alt="Asakusa"
+            width="240"
+            height="160"
+          />
+        </figure>
+      </div>
+      <div class="card lg:card-side bg-base-100 shadow-xl transition ease-in-out hover:scale-[104%]">
+        <figure>
+          <Image
+            class="rounded-lg max-w-full md:max-w-[13rem]"
+            src="/malaycia_travel.webp"
+            alt="Malaysia"
+            width="240"
+            height="160"
+          />
+        </figure>
+      </div>
+      <div class="card lg:card-side bg-base-100 shadow-xl transition ease-in-out hover:scale-[104%]">
+        <figure>
+          <Image
+            class="rounded-lg max-w-full md:max-w-[13rem]"
+            src="/turkey_sky_sea.webp"
+            alt="Turkey"
+            width="240"
+            height="160"
+          />
+        </figure>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
