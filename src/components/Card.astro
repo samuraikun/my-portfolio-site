@@ -1,0 +1,15 @@
+---
+const { title, desc, badge, url, target = "_blank" } = Astro.props
+---
+
+<div class="card w-96 shadow-l rounded-lg bg-base-200 transition ease-in-out hover:scale-[108%] cursor-pointer">
+  <a href={url} target={target}>
+    <div class="card-body">
+      <h2 class="card-title">
+        {title}
+        <div class="badge badge-secondary">{badge}</div>
+      </h2>
+      <p>{desc}</p>
+    </div>
+  </a>
+</div>
