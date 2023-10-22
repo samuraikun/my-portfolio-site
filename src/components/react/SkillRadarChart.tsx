@@ -7,7 +7,6 @@ import {
   PolarRadiusAxis,
   Radar,
   Tooltip,
-  Legend,
 } from "recharts";
 
 type SkillRadarChartProps = {
@@ -34,7 +33,6 @@ export const SkillRadarChart: React.FC<SkillRadarChartProps> = ({ data }) => {
           fill="#FF5733"
           fillOpacity={0.6}
         />
-        <Legend />
         <Tooltip />
       </RadarChart>
     </ResponsiveContainer>
