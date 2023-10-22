@@ -8,8 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "wrangler": "wrangler",
-    "wrangler:preview": "wrangler pages dev ./dist"
+    "vercel": "vercel"
   },
   "dependencies": {
     "@astrojs/react": "^3.0.3",
