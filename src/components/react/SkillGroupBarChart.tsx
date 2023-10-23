@@ -3,67 +3,93 @@ import { type ValueFormatter, Title, Subtitle, BarChart } from "@tremor/react";
 const frontendData = [
   {
     name: "Frontend",
-    "JavaScript": 6,
-    "CSS": 6,
+    JavaScript: 6,
+    CSS: 6,
     "Vue.js": 3,
-    "TypeScript": 1,
+    TypeScript: 1,
     "React.js": 1.5,
-    "Jest": 1,
-    "Storybook": 1,
+    Jest: 1,
+    Storybook: 1,
   },
 ];
 
 const backendData = [
   {
     name: "Backend",
-    "Ruby": 7,
+    Ruby: 7,
     "Ruby on Rails": 7,
     "Node.js": 3,
-    "Python": 1,
-    "Golang": 0.5,
+    Python: 1,
+    Golang: 0.5,
     "REST API": 7,
-    "GraphQL": 1,
-    "WebSocket": 1,
+    GraphQL: 1,
+    WebSocket: 1,
   },
-]
+];
 
 const devOpsData = [
   {
     name: "DevOps",
-    "AWS": 3,
-    "GCP": 0.5,
-    "Terraform": 2,
-    "Docker": 2,
+    AWS: 3,
+    GCP: 0.5,
+    Terraform: 2,
+    Docker: 2,
     "AWS ECS": 2,
-    "Kubernetes": 0.5,
-    "Serverless": 1,
-    "CircleCI": 2,
+    Serverless: 1,
+    CircleCI: 2,
     "GitHub Actions": 1,
   },
-]
+];
 
 const databaseData = [
   {
     name: "Database",
-    "MySQL": 7,
-    "PostgreSQL": 1,
-    "DynamoDB": 1,
-    "Redis": 2,
-    "Elasticsearch": 2,
+    MySQL: 7,
+    PostgreSQL: 1,
+    DynamoDB: 1,
+    Redis: 2,
+    Elasticsearch: 2,
   },
-]
+];
 
-const valueFormatter: ValueFormatter = (number: number) => `${number.toString()} years`;
+const valueFormatter: ValueFormatter = (number: number) =>
+  `${number.toString()} years`;
 const categories = (name: string) => {
   switch (name) {
     case "Frontend":
-      return ["JavaScript", "CSS", "Vue.js", "React.js", "TypeScript", "Jest", "Storybook"];
+      return [
+        "JavaScript",
+        "CSS",
+        "Vue.js",
+        "React.js",
+        "TypeScript",
+        "Jest",
+        "Storybook",
+      ];
       break;
     case "Backend":
-      return ["Ruby", "Ruby on Rails", "Node.js", "Python", "Golang", "REST API", "GraphQL", "WebSocket"];
+      return [
+        "Ruby",
+        "Ruby on Rails",
+        "Node.js",
+        "Python",
+        "Golang",
+        "REST API",
+        "GraphQL",
+        "WebSocket",
+      ];
       break;
     case "DevOps":
-      return ["AWS", "GCP", "Terraform", "Docker", "AWS ECS", "Kubernetes", "Serverless", "CircleCI", "GitHub Actions"];
+      return [
+        "AWS",
+        "GCP",
+        "Terraform",
+        "Docker",
+        "AWS ECS",
+        "Serverless",
+        "CircleCI",
+        "GitHub Actions",
+      ];
       break;
     case "Database":
       return ["MySQL", "PostgreSQL", "DynamoDB", "Redis", "Elasticsearch"];
@@ -72,7 +98,7 @@ const categories = (name: string) => {
       return [];
       break;
   }
-}
+};
 
 export const SkillGroupBarChart = () => (
   <>
@@ -94,7 +120,16 @@ export const SkillGroupBarChart = () => (
       data={backendData}
       index="name"
       categories={categories("Backend")}
-      colors={["red", "blue", "green", "yellow", "purple", "pink", "orange", "teal"]}
+      colors={[
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "pink",
+        "orange",
+        "teal",
+      ]}
       valueFormatter={valueFormatter}
       yAxisWidth={48}
       showYAxis={false}
@@ -106,7 +141,16 @@ export const SkillGroupBarChart = () => (
       data={devOpsData}
       index="name"
       categories={categories("DevOps")}
-      colors={["blue", "green", "yellow", "purple", "pink", "orange", "teal", "amber", "lime"]}
+      colors={[
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "pink",
+        "orange",
+        "teal",
+      ]}
       valueFormatter={valueFormatter}
       yAxisWidth={48}
       showYAxis={false}
