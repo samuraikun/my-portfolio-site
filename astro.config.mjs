@@ -13,7 +13,4 @@ export default defineConfig({
   ],
   output: "server",
   adapter: vercel(),
-  experimental: {
-    devOverlay: true,
-  },
 });
