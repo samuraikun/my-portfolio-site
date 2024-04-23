@@ -11,24 +11,24 @@
     "vercel": "vercel"
   },
   "dependencies": {
-    "@astrojs/react": "^3.0.4",
-    "@astrojs/tailwind": "^5.0.2",
-    "@astrojs/vercel": "^5.1.0",
+    "@astrojs/react": "^3.3.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/vercel": "^7.5.3",
     "@heroicons/react": "^1.0.6",
-    "@tremor/react": "^3.10.0",
-    "@types/react": "^18.2.33",
-    "@types/react-dom": "^18.2.14",
-    "astro": "^3.4.0",
-    "daisyui": "^3.9.4",
+    "@tremor/react": "^3.16.1",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "astro": "^4.6.3",
+    "daisyui": "^4.10.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "recharts": "^2.9.0",
-    "tailwindcss": "^3.3.5",
-    "ts-pattern": "^5.0.5"
+    "recharts": "^2.12.6",
+    "tailwindcss": "^3.4.3",
+    "ts-pattern": "^5.1.1"
   },
   "devDependencies": {
     "@headlessui/tailwindcss": "^0.2.0",
-    "@tailwindcss/typography": "^0.5.10",
-    "vercel": "^32.5.0"
+    "@tailwindcss/typography": "^0.5.12",
+    "vercel": "^34.1.1"
   }
 }
